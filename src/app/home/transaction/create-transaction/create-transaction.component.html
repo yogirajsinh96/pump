@@ -1,0 +1,106 @@
+<div class="card mb-4">
+  <h5 class="card-header">Profile Details</h5>
+  <!-- Account -->
+  <!-- <div class="card-body">
+    <div class="d-flex align-items-start align-items-sm-center gap-4">
+      <img
+        src="../assets/img/avatars/1.png"
+        alt="user-avatar"
+        class="d-block rounded"
+        height="100"
+        width="100"
+        id="uploadedAvatar"
+      />
+      <div class="button-wrapper"></div>
+    </div>
+  </div> -->
+  <hr class="my-0" />
+  <div class="card-body">
+    <form [formGroup]="transactionForm">
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="firstName" class="form-label">Point</label>
+          <select
+            formControlName="point"
+            id="defaultSelect"
+            class="form-select"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="firstName" class="form-label">Side</label>
+          <select formControlName="side" id="defaultSelect" class="form-select">
+            <option value="1">Front</option>
+            <option value="2">Back</option>
+          </select>
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="firstName" class="form-label">Employee</label>
+          <select
+            formControlName="employeeID"
+            id="defaultSelect"
+            class="form-select"
+          >
+            @for (item of employeeList; track $index) {
+            <option [value]="item.id">
+              {{ item.firstName }} {{ item.lastName }}
+            </option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="lastName" class="form-label">Fuel Price</label>
+          <input
+            class="form-control"
+            type="text"
+            name="lastName"
+            id="lastName"
+            formControlName="price"
+          />
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="lastName" class="form-label">Reading Start</label>
+          <input
+            class="form-control"
+            type="text"
+            name="lastName"
+            id="lastName"
+            formControlName="readingStart"
+          />
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="lastName" class="form-label">Reading End</label>
+          <input
+            class="form-control"
+            type="text"
+            name="lastName"
+            id="lastName"
+            formControlName="readingEnd"
+            (blur)="calculateTransaction()"
+          />
+        </div>
+
+        <div class="mb-3 col-md-6">Total Fuel : {{ totalFuel }}</div>
+
+        <div class="mb-3 col-md-6">
+          Total Collection : {{ totalCollection }}
+        </div>
+      </div>
+      <div class="mt-2">
+        <button (click)="saveTransaction()" class="btn btn-primary me-2">
+          Save changes
+        </button>
+        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <!-- /Account -->
+</div>
